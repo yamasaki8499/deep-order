@@ -59,8 +59,8 @@
 	<profiles>
 		<profile>
 			<id>dev</id>
-			<mysql.username>root</mysql.username>
-			<mysql.pswd>feilin0</mysql.pswd>
+			<mysql.username>**</mysql.username>
+			<mysql.pswd>**</mysql.pswd>
 		</profile>
 	</profiles>
 </project>
