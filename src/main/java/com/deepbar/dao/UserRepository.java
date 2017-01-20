@@ -1,9 +1,8 @@
 package com.deepbar.dao;
 
-import com.deepbar.entity.User;
+import com.deepbar.entity.TUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,15 +21,15 @@ public class UserRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Transactional(readOnly = true)
-    public List<User> findAll() {
+    public List<TUser> findAll() {
         return jdbcTemplate.query("select * from t_user", new UserRowMapper());
     }
 
 
-    private class UserRowMapper implements RowMapper<User> {
+    private class UserRowMapper implements RowMapper<TUser> {
         @Override
-        public User mapRow(ResultSet resultSet, int i) throws SQLException {
-            return new User(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"));
+        public TUser mapRow(ResultSet resultSet, int i) throws SQLException {
+            return new TUser(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"));
         }
     }
 }

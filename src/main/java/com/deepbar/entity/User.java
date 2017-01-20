@@ -1,52 +1,64 @@
 package com.deepbar.entity;
 
+import com.deeporder.framework.model.*;
+
+import java.io.Serializable;
+
 /**
- * Created by rayl on 2017/1/20.
+ * Created by RayLiu on 2016/10/26.
  */
-public class User {
-    private Integer id;
-    private String name;
-    private String email;
+@Table(scheme = "T_USER")
+public class User extends BaseModel implements Serializable{
+    private Long id;
+    private String password;
+    private Long roleId;
+    private String loginName;
 
-    public User() {
-    }
-
-    public User(Integer id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
-
-    public Integer getId() {
+    @PrimaryKey
+    @Identity
+    @Column(name = "ID")
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    @Column(name = "PASSWORD")
+    public String getPassword() {
+        return password;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    @Column(name = "ROLE_ID")
+    public Long getRoleId() {
+        return roleId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+
+    @Column(name = "LOGIN_NAME")
+    public String getLoginName() {
+        return loginName;
+    }
+
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roleId=" + roleId +
+                ", loginName='" + loginName + '\'' +
                 '}';
     }
 }
