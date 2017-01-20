@@ -1,7 +1,7 @@
 package com.deepbar.framework.service;
 
-import com.deeporder.framework.page.Page;
-import com.deeporder.framework.page.PageList;
+import com.deepbar.framework.page.Page;
+import com.deepbar.framework.page.PageList;
 
 import java.util.List;
 

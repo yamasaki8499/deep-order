@@ -34,6 +34,7 @@ public class OrderApplication {
 		dataSource.setTestOnBorrow(false);
 		dataSource.setTestWhileIdle(true);
 		dataSource.setPoolPreparedStatements(false);
+
 		return dataSource;
 	}
 }

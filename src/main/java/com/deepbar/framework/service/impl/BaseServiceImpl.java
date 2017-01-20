@@ -1,9 +1,9 @@
 package com.deepbar.framework.service.impl;
 
-import com.deeporder.framework.dao.BaseDao;
-import com.deeporder.framework.page.Page;
-import com.deeporder.framework.page.PageList;
-import com.deeporder.framework.service.BaseService;
+import com.deepbar.framework.dao.BaseDao;
+import com.deepbar.framework.page.Page;
+import com.deepbar.framework.page.PageList;
+import com.deepbar.framework.service.BaseService;
 
 import java.util.List;
 

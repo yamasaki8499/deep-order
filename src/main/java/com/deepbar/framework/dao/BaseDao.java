@@ -1,7 +1,7 @@
 package com.deepbar.framework.dao;
 
-import com.deeporder.framework.page.Page;
-import com.deeporder.framework.page.PageList;
+import com.deepbar.framework.page.Page;
+import com.deepbar.framework.page.PageList;
 
 import java.sql.Connection;
 import java.util.List;

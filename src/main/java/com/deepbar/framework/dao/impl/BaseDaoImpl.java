@@ -1,11 +1,11 @@
 package com.deepbar.framework.dao.impl;
 
-import com.deeporder.framework.dao.BaseDao;
-import com.deeporder.framework.model.BaseModel;
-import com.deeporder.framework.orm.TableMetaData;
-import com.deeporder.framework.page.Page;
-import com.deeporder.framework.page.PageList;
-import com.deeporder.framework.util.StringUtil;
+import com.deepbar.framework.dao.BaseDao;
+import com.deepbar.framework.model.BaseModel;
+import com.deepbar.framework.orm.TableMetaData;
+import com.deepbar.framework.page.Page;
+import com.deepbar.framework.page.PageList;
+import com.deepbar.framework.util.StringUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
