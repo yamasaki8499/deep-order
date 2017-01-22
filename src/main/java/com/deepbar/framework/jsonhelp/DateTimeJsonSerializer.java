@@ -1,6 +1,6 @@
 package com.deepbar.framework.jsonhelp;
 
-import com.deeporder.framework.util.DateUtil;
+import com.deepbar.framework.util.DateUtil;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
