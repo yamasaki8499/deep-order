@@ -1,6 +1,6 @@
 package com.deepbar.framework.dao.impl;
 
-import com.deeporder.framework.orm.TableMetaData;
+import com.deepbar.framework.orm.TableMetaData;
 
 /**
  * Created by josh on 15/6/20.

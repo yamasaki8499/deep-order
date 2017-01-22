@@ -1,7 +1,7 @@
 package com.deepbar.framework.model;
 
-import com.deeporder.framework.jsonhelp.DateTimeJsonDeserializer;
-import com.deeporder.framework.jsonhelp.DateTimeJsonSerializer;
+import com.deepbar.framework.jsonhelp.DateTimeJsonDeserializer;
+import com.deepbar.framework.jsonhelp.DateTimeJsonSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
