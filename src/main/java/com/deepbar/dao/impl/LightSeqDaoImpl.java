@@ -1,8 +1,8 @@
 package com.deepbar.dao.impl;
 
-import com.deeporder.bm.dao.LightSeqDao;
-import com.deeporder.bm.entity.LightSeq;
-import com.deeporder.framework.dao.impl.BaseDaoImpl;
+import com.deepbar.dao.LightSeqDao;
+import com.deepbar.entity.LightSeq;
+import com.deepbar.framework.dao.impl.BaseDaoImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;

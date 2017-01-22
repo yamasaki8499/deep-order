@@ -1,8 +1,8 @@
 package com.deepbar.dao.impl;
 
-import com.deeporder.bm.dao.UserDao;
-import com.deeporder.bm.entity.User;
-import com.deeporder.framework.dao.impl.BaseDaoImpl;
+import com.deepbar.dao.UserDao;
+import com.deepbar.entity.User;
+import com.deepbar.framework.dao.impl.BaseDaoImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;

@@ -1,8 +1,8 @@
 package com.deepbar.dao.impl;
 
-import com.deeporder.bm.dao.PayByPayForDao;
-import com.deeporder.bm.entity.PayByPayFor;
-import com.deeporder.framework.dao.impl.BaseDaoImpl;
+import com.deepbar.dao.PayByPayForDao;
+import com.deepbar.entity.PayByPayFor;
+import com.deepbar.framework.dao.impl.BaseDaoImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;

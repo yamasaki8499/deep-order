@@ -1,8 +1,8 @@
 package com.deepbar.dao.impl;
 
-import com.deeporder.bm.dao.RechargeRecordDao;
-import com.deeporder.bm.entity.RechargeRecord;
-import com.deeporder.framework.dao.impl.BaseDaoImpl;
+import com.deepbar.dao.RechargeRecordDao;
+import com.deepbar.entity.RechargeRecord;
+import com.deepbar.framework.dao.impl.BaseDaoImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;

@@ -1,8 +1,8 @@
 package com.deepbar.dao.impl;
 
-import com.deeporder.bm.dao.StorageDetailDao;
-import com.deeporder.bm.entity.StorageDetail;
-import com.deeporder.framework.dao.impl.BaseDaoImpl;
+import com.deepbar.dao.StorageDetailDao;
+import com.deepbar.entity.StorageDetail;
+import com.deepbar.framework.dao.impl.BaseDaoImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;

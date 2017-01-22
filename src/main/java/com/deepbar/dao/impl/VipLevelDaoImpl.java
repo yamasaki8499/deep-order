@@ -1,8 +1,8 @@
 package com.deepbar.dao.impl;
 
-import com.deeporder.bm.dao.VipLevelDao;
-import com.deeporder.bm.entity.VipLevel;
-import com.deeporder.framework.dao.impl.BaseDaoImpl;
+import com.deepbar.dao.VipLevelDao;
+import com.deepbar.entity.VipLevel;
+import com.deepbar.framework.dao.impl.BaseDaoImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;

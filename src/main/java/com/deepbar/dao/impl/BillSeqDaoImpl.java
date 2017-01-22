@@ -1,8 +1,8 @@
 package com.deepbar.dao.impl;
 
-import com.deeporder.bm.dao.BillSeqDao;
-import com.deeporder.bm.entity.BillSeq;
-import com.deeporder.framework.dao.impl.BaseDaoImpl;
+import com.deepbar.dao.BillSeqDao;
+import com.deepbar.entity.BillSeq;
+import com.deepbar.framework.dao.impl.BaseDaoImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
