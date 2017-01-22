@@ -1,6 +1,6 @@
 package com.deepbar.entity;
 
-import com.deeporder.framework.model.*;
+import com.deepbar.framework.model.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

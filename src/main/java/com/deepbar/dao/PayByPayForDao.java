@@ -1,7 +1,7 @@
 package com.deepbar.dao;
 
-import com.deeporder.bm.entity.PayByPayFor;
-import com.deeporder.framework.dao.BaseDao;
+import com.deepbar.entity.PayByPayFor;
+import com.deepbar.framework.dao.BaseDao;
 
 /**
  * Created by RayLiu on 2016/11/9.

@@ -1,7 +1,7 @@
 package com.deepbar.dao;
 
-import com.deeporder.bm.entity.Membership;
-import com.deeporder.framework.dao.BaseDao;
+import com.deepbar.entity.Membership;
+import com.deepbar.framework.dao.BaseDao;
 
 /**
  * Created by RayLiu on 2016/11/9.

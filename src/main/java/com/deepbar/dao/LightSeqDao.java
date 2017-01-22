@@ -1,7 +1,7 @@
 package com.deepbar.dao;
 
-import com.deeporder.bm.entity.LightSeq;
-import com.deeporder.framework.dao.BaseDao;
+import com.deepbar.entity.LightSeq;
+import com.deepbar.framework.dao.BaseDao;
 
 /**
  * Created by RayLiu on 2016/11/9.

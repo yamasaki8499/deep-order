@@ -1,8 +1,8 @@
 package com.deepbar.entity;
 
-import com.deeporder.framework.jsonhelp.DateTimeJsonSerializer;
-import com.deeporder.framework.model.Column;
-import com.deeporder.framework.model.Table;
+import com.deepbar.framework.jsonhelp.DateTimeJsonSerializer;
+import com.deepbar.framework.model.Column;
+import com.deepbar.framework.model.Table;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.io.Serializable;

@@ -1,9 +1,9 @@
 package com.deepbar.entity;
 
-import com.deeporder.framework.model.Column;
-import com.deeporder.framework.model.Identity;
-import com.deeporder.framework.model.PrimaryKey;
-import com.deeporder.framework.model.Table;
+import com.deepbar.framework.model.Column;
+import com.deepbar.framework.model.Identity;
+import com.deepbar.framework.model.PrimaryKey;
+import com.deepbar.framework.model.Table;
 
 import java.io.Serializable;
 

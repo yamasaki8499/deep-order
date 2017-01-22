@@ -1,7 +1,7 @@
 package com.deepbar.entity;
 
-import com.deeporder.framework.model.Column;
-import com.deeporder.framework.model.Table;
+import com.deepbar.framework.model.Column;
+import com.deepbar.framework.model.Table;
 
 import java.io.Serializable;
 

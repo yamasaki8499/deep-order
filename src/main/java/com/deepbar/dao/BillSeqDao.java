@@ -1,7 +1,7 @@
 package com.deepbar.dao;
 
-import com.deeporder.bm.entity.BillSeq;
-import com.deeporder.framework.dao.BaseDao;
+import com.deepbar.entity.BillSeq;
+import com.deepbar.framework.dao.BaseDao;
 
 /**
  * Created by RayLiu on 2016/11/1.
