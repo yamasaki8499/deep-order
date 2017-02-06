@@ -23,6 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by josh on 15/6/17.
+ * Updated by RayL on 17/2/6
  */
 public abstract class DbHelper {
 
@@ -30,89 +31,89 @@ public abstract class DbHelper {
 
     private static final Map<Class<?>, TableMetaData> tableMapCache = new ConcurrentHashMap<>();
 
-    protected static final String SELECT = " select ";
+    private static final String SELECT = " select ";
 
-    protected static final String FROM = " from ";
+    private static final String FROM = " from ";
 
-    protected static final String SELECT_ALL_FROM = " select * from ";
+    private static final String SELECT_ALL_FROM = " select * from ";
 
-    protected static final String SELECT_COUNT_ALL_FROM = " select count(*) from ";
+    private static final String SELECT_COUNT_ALL_FROM = " select count(*) from ";
 
-    protected static final String INSERT_INTO = "insert into ";
+    static final String INSERT_INTO = "insert into ";
 
-    protected static final String UPDATE = "update ";
+    private static final String UPDATE = "update ";
 
-    protected static final String DELETE = " delete ";
+    private static final String DELETE = " delete ";
 
-    protected static final String SET = " set ";
+    private static final String SET = " set ";
 
-    protected static final String VALUES = " values(";
+    static final String VALUES = " values(";
 
-    protected static final String LEFT_BRACKETS = "(";
+    static final String LEFT_BRACKETS = "(";
 
-    protected static final String RIGHT_BRACKETS = ")";
+    static final String RIGHT_BRACKETS = ")";
 
-    protected static final String COMMA = ",";
+    static final String COMMA = ",";
 
-    protected static final String EQUAL = "=";
+    private static final String EQUAL = "=";
 
-    protected static final String QUESTION = "?";
+    static final String QUESTION = "?";
 
     protected static final String STAR = " * ";
 
-    protected static final String WHERE = " where ";
+    private static final String WHERE = " where ";
 
-    protected static final String GET_PREFIX = "get";
+    private static final String GET_PREFIX = "get";
 
-    protected static final String SET_PREFIX = "set";
+    private static final String SET_PREFIX = "set";
 
-    protected static final String INTEGER_CLASS = "java.lang.Integer";
+    private static final String INTEGER_CLASS = "java.lang.Integer";
 
-    protected static final String LONG_CLASS = "java.lang.Long";
+    private static final String LONG_CLASS = "java.lang.Long";
 
-    protected static final String DOUBLE_CLASS = "java.lang.Double";
+    private static final String DOUBLE_CLASS = "java.lang.Double";
 
-    protected static final String FLOAT_CLASS = "java.lang.Float";
+    private static final String FLOAT_CLASS = "java.lang.Float";
 
-    protected static final String STRING_CLASS = "java.lang.String";
+    private static final String STRING_CLASS = "java.lang.String";
 
-    protected static final String BYTE_CLASS = "java.lang.Byte";
+    private static final String BYTE_CLASS = "java.lang.Byte";
 
-    protected static final String SHORT_CLASS = "java.lang.Short";
+    private static final String SHORT_CLASS = "java.lang.Short";
 
-    protected static final String BIGDECIMAL_CLASS = "java.math.BigDecimal";
+    private static final String BIGDECIMAL_CLASS = "java.math.BigDecimal";
 
-    protected static final String DATE_CLASS = "java.util.Date";
+    private static final String DATE_CLASS = "java.util.Date";
 
-    protected static final String BOOLEAN_CLASS = "java.lang.Boolean";
+    private static final String BOOLEAN_CLASS = "java.lang.Boolean";
 
-    protected static final String DATA_BASE_DIALECT_MYSQL = "mysql";
+    static final String DATA_BASE_DIALECT_MYSQL = "mysql";
 
-    protected static final String DATA_BASE_DIALECT_ORACLE = "oracle";
+    static final String DATA_BASE_DIALECT_ORACLE = "oracle";
 
-    protected static final String DATA_BASE_DIALECT = PropertyReader.get("database.dialect", PropertyReader.JDBC_FILE);
+    static final String DATA_BASE_DIALECT = PropertyReader.get("database.dialect", PropertyReader.JDBC_FILE);
 
-    protected static final String SQL_DATE_CLASS = "java.sql.Date";
+    private static final String SQL_DATE_CLASS = "java.sql.Date";
 
-    protected static final String SQL_TIMESTAMP_CLASS = "java.sql.Timestamp";
+    private static final String SQL_TIMESTAMP_CLASS = "java.sql.Timestamp";
 
-    protected static final String DELETED = "deleted";
+    static final String DELETED = "deleted";
 
-    protected static final String CREATE_TIME = "createTime";
+    static final String CREATE_TIME = "createTime";
 
-    protected static final String CREATE_USER = "createUser";
+    static final String CREATE_USER = "createUser";
 
-    protected static final String UPDATE_TIME = "updateTime";
+    static final String UPDATE_TIME = "updateTime";
 
-    protected static final String UPDATE_USER = "updateUser";
+    static final String UPDATE_USER = "updateUser";
 
-    protected static final String JAVA_TYPE_PREFIX = "java.";
+    private static final String JAVA_TYPE_PREFIX = "java.";
 
-    protected static final Map<String, Object> javaBaseType = new HashMap<>();
+    private static final Map<String, Object> javaBaseType = new HashMap<>();
 
-    protected static AbstractCurrentUser currentUser = ContextUtil.getBean("currentUser");
+    static AbstractCurrentUser currentUser = ContextUtil.getBean("currentUser");
 
-    public DbHelper() {
+    DbHelper() {
         javaBaseType.put("boolean", Boolean.class.getName());
         javaBaseType.put("byte", Byte.class.getName());
         javaBaseType.put("short", Short.class.getName());
@@ -143,6 +144,8 @@ public abstract class DbHelper {
      * @param sql
      * @param startIndex
      * @param pageSize
+     * @param sortName
+     * @param sortDirect
      * @return
      */
     protected abstract String generatePageSql(String sql, int startIndex, int pageSize, String sortName, String sortDirect);
@@ -150,6 +153,7 @@ public abstract class DbHelper {
     /**
      * 生成行锁sql
      *
+     * @param clss
      * @return
      */
     protected abstract String generateLockSql(Class clss);
@@ -160,7 +164,7 @@ public abstract class DbHelper {
      * @param object pojo对象
      * @return
      */
-    protected TableMetaData resolveTable(Object object) {
+    TableMetaData resolveTable(Object object) {
         return resolveTable(object.getClass());
     }
 
@@ -171,7 +175,7 @@ public abstract class DbHelper {
      * @param cls pojo 对象的class
      * @return
      */
-    protected TableMetaData resolveTable(Class<?> cls) {
+    TableMetaData resolveTable(Class<?> cls) {
         if (tableMapCache.containsKey(cls)) {
             return tableMapCache.get(cls);
         }
@@ -263,7 +267,7 @@ public abstract class DbHelper {
      *
      * @param tableMetaData
      */
-    protected void resolveUpdateSql(TableMetaData tableMetaData) {
+    private void resolveUpdateSql(TableMetaData tableMetaData) {
         if (!tableMetaData.getHasPrimaryKey()) {
             return;
         }
@@ -292,7 +296,7 @@ public abstract class DbHelper {
      *
      * @param tableMetaData
      */
-    protected void resolveDeleteSql(TableMetaData tableMetaData) {
+    private void resolveDeleteSql(TableMetaData tableMetaData) {
         if (!tableMetaData.getHasPrimaryKey()) {
             return;
         }
@@ -315,7 +319,7 @@ public abstract class DbHelper {
      *
      * @param tableMetaData
      */
-    protected void resolveLogicDeleteSql(TableMetaData tableMetaData) {
+    private void resolveLogicDeleteSql(TableMetaData tableMetaData) {
         if (!tableMetaData.getHasPrimaryKey()) {
             return;
         }
@@ -337,7 +341,7 @@ public abstract class DbHelper {
      * @param object
      * @return
      */
-    protected SqlHelper generateUpdateSql(Object object) {
+    SqlHelper generateUpdateSql(Object object) {
 
         TableMetaData tableMetaData = resolveTable(object);
 
@@ -399,7 +403,7 @@ public abstract class DbHelper {
      * @param cls
      * @return
      */
-    protected String generateSingleSelectSql(Class cls) {
+    String generateSingleSelectSql(Class cls) {
         StringBuilder sb = new StringBuilder();
         TableMetaData tableMetaData = resolveTable(cls);
 
@@ -419,7 +423,7 @@ public abstract class DbHelper {
      * @param cls
      * @return
      */
-    protected String generateAllSelectSql(Class cls) {
+    String generateAllSelectSql(Class cls) {
         StringBuilder sb = new StringBuilder();
         TableMetaData tableMetaData = resolveTable(cls);
 
@@ -438,7 +442,7 @@ public abstract class DbHelper {
      * @param propertyNames
      * @return
      */
-    protected String generateSingleSelectSql(Class cls, String... propertyNames) {
+    String generateSingleSelectSql(Class cls, String... propertyNames) {
         if (propertyNames == null || propertyNames.length == 0) {
             return generateSingleSelectSql(cls);
         }
@@ -474,7 +478,7 @@ public abstract class DbHelper {
      * @param sql
      * @return
      */
-    protected String generateCountSql(String sql) {
+    String generateCountSql(String sql) {
         StringBuilder sb = new StringBuilder();
         sb.append(SELECT_COUNT_ALL_FROM).append(LEFT_BRACKETS).append(sql).append(RIGHT_BRACKETS).append(" tmp").append(System.currentTimeMillis());
         return sb.toString();
@@ -488,7 +492,7 @@ public abstract class DbHelper {
      * @param o
      * @param keyHolder
      */
-    protected void resolveIdentityKey(TableMetaData tableMetaData, Object o, KeyHolder keyHolder) {
+    void resolveIdentityKey(TableMetaData tableMetaData, Object o, KeyHolder keyHolder) {
 
         switch (tableMetaData.getIdentityKeyGetMethod().getReturnType().getName()) {
             case DbHelper.INTEGER_CLASS:
@@ -516,7 +520,7 @@ public abstract class DbHelper {
      * @param o
      * @param identityValue
      */
-    protected void resolveIdentityKey(TableMetaData tableMetaData, Object o, Object identityValue) {
+    void resolveIdentityKey(TableMetaData tableMetaData, Object o, Object identityValue) {
 
         switch (tableMetaData.getIdentityKeyGetMethod().getReturnType().getName()) {
             case DbHelper.INTEGER_CLASS:
@@ -544,7 +548,7 @@ public abstract class DbHelper {
      * @param values
      * @throws SQLException
      */
-    protected void resolvePreparedStatement(PreparedStatement ps, Object[] values) throws SQLException {
+    void resolvePreparedStatement(PreparedStatement ps, Object[] values) throws SQLException {
         for (int i = 0; i < values.length; i++) {
             Object value = values[i];
             if (value == null) {
@@ -592,7 +596,7 @@ public abstract class DbHelper {
      * @param parameters
      * @return
      */
-    protected int[] resolveQueryParameter(Object... parameters) {
+    int[] resolveQueryParameter(Object... parameters) {
         List<Integer> list = new ArrayList<>();
         for (Object param : parameters) {
             if (param == null) {
@@ -649,7 +653,7 @@ public abstract class DbHelper {
      * @param <T> 返回类型
      * @return
      */
-    protected <T> T resolveMapToBean(Class<T> cls, Map map) {
+    <T> T resolveMapToBean(Class<T> cls, Map map) {
         T t = null;
         try {
             t = cls.newInstance();
@@ -694,9 +698,8 @@ public abstract class DbHelper {
                     // 基础数据类型
                     if (columnMetaData != null) {
                         resolvePropertyMapToBean(t, valueType, value, columnMetaData);
-                        continue;
                     } else {
-                        if (value.getClass().getName().indexOf(JAVA_TYPE_PREFIX) >= 0 || javaBaseType.containsKey(value.getClass().getName())) {
+                        if (value.getClass().getName().contains(JAVA_TYPE_PREFIX) || javaBaseType.containsKey(value.getClass().getName())) {
                             Map<String, FieldMetaData> fieldMetaDataMap = tableMetaData.getFieldMetaDataMapWithNoColumnAnno();
                             FieldMetaData fieldMetaData = fieldMetaDataMap.get(key);
                             if (fieldMetaData != null) {
@@ -715,14 +718,14 @@ public abstract class DbHelper {
                                 }
                             }
                         } else {
-                            if (key.indexOf("__") >= 0) {
+                            if (key.contains("__")) {
                                 String[] prefix = key.split("__");
                                 Object o = t;
-                                for (int i = 0; i < prefix.length; i++) {
+                                for (String aPrefix : prefix) {
                                     if (o == null) {
                                         break;
                                     }
-                                    o = resolveObjectMapToBean(o, prefix[i], value);
+                                    o = resolveObjectMapToBean(o, aPrefix, value);
                                 }
                             }
                         }
@@ -805,6 +808,7 @@ public abstract class DbHelper {
      *
      * @param cls
      * @param method
+     * @param fieldMetaDataMap
      * @return
      * @throws Exception
      */
@@ -847,7 +851,7 @@ public abstract class DbHelper {
             }
 
             if (column != null
-                    && (field.getType().getName().indexOf(JAVA_TYPE_PREFIX) != -1 || javaBaseType.containsKey(field.getType().getName()))) {
+                    && (field.getType().getName().contains(JAVA_TYPE_PREFIX) || javaBaseType.containsKey(field.getType().getName()))) {
                 ColumnMetaData columnMetaData = new ColumnMetaData();
                 columnMetaData.setPropertyName(field.getName());
                 columnMetaData.setPropertyType(method.getReturnType().getName());
@@ -882,7 +886,6 @@ public abstract class DbHelper {
 
         if (superClass.equals(BaseModel.class)) {
             tableMetaData.setParentBaseModel(true);
-            return;
         } else {
             while (!superClass.equals(Object.class)) {
                 superClass = superClass.getSuperclass();
